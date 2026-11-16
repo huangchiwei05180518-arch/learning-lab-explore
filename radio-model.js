@@ -1,0 +1,1 @@
+export function state(side,time){return {earthBlocked:side==='far',sunBlocked:time==='night',text:side==='far'?(time==='night'?'背面＋月夜：月球擋住地球與太陽的直接射電訊號，是較安靜的觀測條件。但銀河與儀器雜訊仍在。':'背面＋白天：地球的直接射電訊號被月球擋住，但太陽仍在當地天空中。'):(time==='night'?'正面＋月夜：太陽在地平線下，但地球仍在天空中；入夜不會擋住來自地球的無線電。':'正面＋白天：地球與太陽都可能帶來強烈的射電干擾。')}}

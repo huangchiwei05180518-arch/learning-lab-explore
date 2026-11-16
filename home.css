@@ -17,3 +17,5 @@
   .ecosystem-feature { padding: 26px 0; }
   .ecosystem-home-link { grid-template-columns: 1fr; }
 }
+/* Keep the expanded navigation readable on narrow phones. */
+@media(max-width:600px){.masthead{align-items:flex-start;flex-direction:column;gap:8px}.masthead .logo{white-space:nowrap}.masthead nav{width:100%;justify-content:flex-start;gap:4px 16px}}
