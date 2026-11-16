@@ -1,0 +1,173 @@
+.lesson-book { padding-bottom: 32px; }
+.book-spread + .book-spread { margin-top: 31px; }
+.book-spread .book-attribution { display: block; }
+.book-controls[hidden], .book-stage[hidden], [data-book-source][hidden] { display: none; }
+.book-ready {
+  height: 100dvh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+.book-ready .mast {
+  min-height: 49px;
+  gap: 0 8px;
+  flex-wrap: nowrap;
+}
+.book-ready .mast .brand,
+.book-ready .mast .back { white-space: nowrap; }
+.book-page-number {
+  color: var(--quiet);
+  font-size: .81rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.book-ready .book-main { min-height: 0; }
+.book-ready .lesson-book {
+  height: 100%;
+  min-height: 0;
+  width: min(940px, 100%);
+  margin: 0 auto;
+  padding: 0;
+}
+.book-stage {
+  position: relative;
+  display: block;
+  height: 100%;
+  padding-block: 0;
+  overflow: hidden;
+}
+.book-stage.book-overflow { overflow-y: auto; }
+.book-slide {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(9px, 2vh, 20px);
+  padding: clamp(8px, 2.6vh, 22px) 5px;
+}
+.book-slide > * { flex: none; min-width: 0; }
+.book-visible { min-height: 100%; justify-content: center; }
+.book-ruler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.book-slide h1, .book-slide h2 { margin: 0; line-height: 1.23; }
+.book-slide h1 { font-size: clamp(1.7rem, 4.3vw, 3.4rem); }
+.book-slide h2 { font-size: clamp(1.46rem, 3.5vw, 2.48rem); }
+.book-slide p, .book-slide .lead, .book-slide .kicker { margin: 0; }
+.book-slide p { font-size: clamp(1rem, 1.7vw, 1.16rem); line-height: 1.62; }
+.book-slide .lead { max-width: none; }
+.book-slide p.kicker { font-size: .82rem; line-height: 1.4; }
+.book-slide .short-point {
+  background: var(--surface);
+  border-left: 3px solid var(--line);
+  padding: 6px 10px;
+}
+.book-slide .short-point strong { margin-right: .5em; }
+.book-slide .photo, .book-slide .tide, .book-slide .practice { margin: 0; }
+.book-slide .photo img {
+  height: clamp(72px, var(--book-photo-height, 40vh), 460px);
+  width: 100%;
+  border: 1px solid var(--line);
+  object-fit: contain;
+}
+.book-slide .photo figcaption { margin-top: 5px; line-height: 1.43; font-size: .88rem; }
+.book-attribution a { color: var(--green); }
+.book-slide .source-item { font-size: .94rem; }
+.book-slide .tide-scene { height: clamp(53px, 16dvh, 120px); }
+.book-slide .tide p { font-size: .91rem; }
+.book-slide .back-links { margin: 0; }
+.book-ruler .tide .high-description { display: block !important; }
+.book-ruler .tide .low-description { display: block !important; }
+.book-controls {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  width: min(940px, calc(100% - 24px));
+  margin-inline: auto;
+  border-top: 1px solid var(--line);
+  padding: 5px 0 max(5px, env(safe-area-inset-bottom));
+}
+.book-controls button, .book-controls select {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  min-height: 44px;
+  padding-inline: 9px;
+  min-width: 0;
+  font: inherit;
+  font-size: .92rem;
+}
+.book-controls button { white-space: nowrap; }
+.book-controls button:disabled { opacity: .45; }
+.book-controls button:focus-visible, .book-controls select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.book-controls button:not(:disabled):hover { border-color: var(--accent); cursor: pointer; }
+@media (max-width: 420px) {
+  .book-ready .mast .brand { font-size: .77rem; letter-spacing: .035em; }
+  .book-ready .mast .back { font-size: .78rem; }
+  .book-ready .mast .back span { margin-right: .24em; }
+  .book-controls button { padding-inline: 7px; }
+  .book-slide { padding-inline: 1px; }
+}
+@media (max-height: 480px) {
+  .book-slide { gap: 7px; padding-block: 6px; }
+  .book-slide .photo figcaption { font-size: .83rem; }
+  .book-slide h1, .book-slide h2 { font-size: 1.36rem; }
+}
+
+.book-slide .tide fieldset {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  grid-template-areas:
+    "low high ."
+    "scene scene scene"
+    "note note note";
+  align-items: start;
+  padding: 8px 12px 5px;
+  column-gap: 6px;
+}
+.book-slide .tide legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.book-slide .tide label { margin: 0 0 5px; }
+.book-slide .tide label[for="tide-low"] { grid-area: low; }
+.book-slide .tide label[for="tide-high"] { grid-area: high; }
+.book-slide .tide-scene { grid-area: scene; }
+.book-slide .tide p { grid-area: note; margin: 4px 0 0; line-height: 1.42; }
+.book-slide .tide figcaption { margin-top: 3px; font-size: .83rem; line-height: 1.4; }
+@media (max-height: 480px) {
+  .book-slide .tide-scene { height: 36px; }
+  .book-slide .tide fieldset { padding: 0; border: 0; }
+  .book-slide .tide figcaption { margin-top: 1px; }
+}
+
+/* Keep explanations beside their visual evidence. */
+.eco-diagram { margin: 0; }
+.eco-diagram svg { display: block; width: 100%; max-height: min(27dvh, 230px); }
+.eco-diagram figcaption, .book-slide .scope-note { font-size: .86rem; line-height: 1.5; color: var(--quiet); }
+.book-slide .photo img { height: clamp(72px, var(--book-photo-height, 32vh), 340px); }
+.book-slide .photo figcaption { font-size: .82rem; }
+.book-slide .book-attribution { display: inline; }
+.book-visible { justify-content: flex-start; }
+@media (min-width: 800px) { .book-visible { justify-content: center; } }
+
+.eco-flow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0}.eco-flow>div{display:grid;gap:8px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:1rem}.eco-flow strong{color:var(--green)}.eco-flow figcaption{grid-column:1/-1;font-size:.85rem;color:var(--quiet)}
+@media(max-width:600px){.eco-flow{gap:6px}.eco-flow>div{padding:8px;font-size:.9rem;gap:6px}}
+
+/* HTML labels retain readable type at narrow viewports, unlike scaled SVG text. */
+.eco-diagram-labels{display:flex;justify-content:space-around;gap:8px;font-size:1rem;line-height:1.45;color:var(--ink);text-align:center;margin:4px 0}
+.alpine-labels{display:grid;grid-template-columns:1fr .6fr 1.4fr}
+.eco-diagram svg{max-height:min(23dvh,190px)}

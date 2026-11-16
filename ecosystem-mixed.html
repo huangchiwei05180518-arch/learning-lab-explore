@@ -1,0 +1,10 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>探索針闊葉混合林｜互動知識實驗室</title><link rel="stylesheet" href="broadleaf-scene.css"><link rel="stylesheet" href="mixed-scene.css"></head><body>
+<header><a href="ecosystem-alpine.html#mixed">← 回到山地全景</a><span>針闊葉混合林</span><button id="overview" aria-pressed="false">看全景</button><button id="hint-toggle" aria-pressed="false">顯示探索提示</button></header>
+<main><div class="intro"><h1>同一片森林，藏著不同的葉。</h1><p>點選畫中的動植物，打開真實照片與觀察線索。<span class="mobile-tip">左右滑動，可以繼續走進混合林。</span></p></div>
+<div class="scene-shell" tabindex="0" role="region" aria-label="混合林探索畫面；窄螢幕可左右捲動，也可用 Tab 選擇四種生物"><div class="scene" id="scene"><img class="scene-image" src="assets/mixed-scene.png" alt="臺灣針闊葉混合林概念插畫，有紅檜、臺灣紅榨槭、帝雉與金翼白眉。">
+<button class="hotspot m-cypress" data-species="cypress" aria-label="探索紅檜"><span>紅檜</span><i aria-hidden="true">＋</i></button>
+<button class="hotspot m-maple" data-species="maple" aria-label="探索臺灣紅榨槭"><span>臺灣紅榨槭</span><i aria-hidden="true">＋</i></button>
+<button class="hotspot m-pheasant" data-species="pheasant" aria-label="探索帝雉"><span>帝雉</span><i aria-hidden="true">＋</i></button>
+<button class="hotspot m-gold" data-species="gold" aria-label="探索金翼白眉"><span>金翼白眉</span><i aria-hidden="true">＋</i></button></div></div>
+<footer><p class="art-note">AI 生態情境示意，近景便於觀察；非實拍、非特定山坡的共現紀錄。</p><div class="bottom"><span id="progress" role="status">已找到 0 / 4 種</span><details><summary>文字版入口</summary><div class="text-entries"><button data-species="cypress">紅檜</button><button data-species="maple">臺灣紅榨槭</button><button data-species="pheasant">帝雉</button><button data-species="gold">金翼白眉</button></div></details></div></footer></main>
+<dialog id="detail" aria-labelledby="detail-title"><button class="close" aria-label="返回混合林">✕</button><div id="detail-content"></div></dialog><script src="mixed-scene.js"></script></body></html>
